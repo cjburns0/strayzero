@@ -112,34 +112,34 @@ export default function HomePage() {
         </div>
 
         {/* Adjustments Display */}
-        <Card className="bg-gradient-to-br bg-green-950/20 border-green-900/30 backdrop-blur-sm">
+        <Card className="bg-gradient-to-br from-blue-900/90 to-blue-800/90 border-blue-700/50 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-lg text-green-300">Adjustments (mils)</CardTitle>
+            <CardTitle className="text-lg text-blue-100">Adjustments (mils)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-sm text-green-400 mb-1">ELEVATION</div>
-                <div className="text-3xl font-bold text-green-300 font-mono drop-shadow-lg">
+                <div className="text-sm text-blue-200 mb-1">ELEVATION</div>
+                <div className="text-3xl font-bold text-white font-mono drop-shadow-lg">
                   {elevation > 0 ? "+" : ""}
                   {elevation}
                 </div>
-                <div className="text-xs text-green-500">{elevation > 0 ? "UP" : elevation < 0 ? "DOWN" : "ZERO"}</div>
+                <div className="text-xs text-blue-300">{elevation > 0 ? "UP" : elevation < 0 ? "DOWN" : "ZERO"}</div>
               </div>
               <div className="text-center">
-                <div className="text-sm text-green-400 mb-1">WINDAGE</div>
-                <div className="text-3xl font-bold text-green-300 font-mono drop-shadow-lg">
+                <div className="text-sm text-blue-200 mb-1">WINDAGE</div>
+                <div className="text-3xl font-bold text-white font-mono drop-shadow-lg">
                   {windage > 0 ? "+" : ""}
                   {windage}
                 </div>
-                <div className="text-xs text-green-500">{windage > 0 ? "RIGHT" : windage < 0 ? "LEFT" : "ZERO"}</div>
+                <div className="text-xs text-blue-300">{windage > 0 ? "RIGHT" : windage < 0 ? "LEFT" : "ZERO"}</div>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Environmental Conditions */}
-        <Card className="bg-gray-900/50 border-green-900/30 backdrop-blur-sm">
+        <Card className="bg-gray-900/50 border-green-500 border-2 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2 text-green-300">
               <Wind className="h-5 w-5 text-green-400" />
@@ -190,7 +190,7 @@ export default function HomePage() {
         </Card>
 
         {/* Profile Selection */}
-        <Card className="bg-gray-900/50 border-green-900/30 backdrop-blur-sm">
+        <Card className="bg-gray-900/50 border-green-500 border-2 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-lg text-green-300">Current Setup</CardTitle>
           </CardHeader>
@@ -261,7 +261,7 @@ export default function HomePage() {
               variant="outline"
             >
               <Settings className="h-4 w-4 mr-2" />
-              Firearms / Ammo Profiles
+              Firearms / Ammo
             </Button>
           </Link>
         </div>
