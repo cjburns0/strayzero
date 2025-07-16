@@ -92,3 +92,54 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom staggered blinking animation for the periods */
+@keyframes blink1 {
+  0%,
+  33%,
+  100% {
+    opacity: 1;
+  }
+  16%,
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink2 {
+  0%,
+  16%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  33%,
+  66% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink3 {
+  0%,
+  50%,
+  83%,
+  100% {
+    opacity: 1;
+  }
+  66%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink-1 {
+  animation: blink1 2s infinite;
+}
+
+.animate-blink-2 {
+  animation: blink2 2s infinite;
+}
+
+.animate-blink-3 {
+  animation: blink3 2s infinite;
+}
