@@ -27,8 +27,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+
+  if (!clerkPublishableKey) {
+    console.error("Missing NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY environment variable")
+  }
+
   return (
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider publishableKey={clerkPublishableKey || ""}>
       <html lang="en">
         <body className={jetbrainsMono.className}>
           <div className="min-h-screen bg-black flex flex-col">
