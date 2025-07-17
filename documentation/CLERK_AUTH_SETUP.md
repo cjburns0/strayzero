@@ -87,7 +87,7 @@ Added authentication components to the navigation bar in `app/layout.tsx`:
 Currently, **all routes are publicly accessible**:
 
 - `/` - Landing page
-- `/app` - Ballistic calculator
+- `/calculator` - Ballistic calculator
 - `/settings` - Firearm and ammunition profiles
 - `/reticle` - Reticle view
 - `/pricing` - Pricing page
@@ -105,7 +105,7 @@ To protect routes and features, you can:
    ```typescript
    import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
    
-   const isProtectedRoute = createRouteMatcher(['/app(.*)'])
+   const isProtectedRoute = createRouteMatcher(['/calculator(.*)'])
    
    export default clerkMiddleware(async (auth, req) => {
      if (isProtectedRoute(req)) await auth.protect()

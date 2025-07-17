@@ -38,7 +38,7 @@ export default function RootLayout({
                 StrayZero
               </Link>
               <div className="flex items-center gap-6 md:gap-10 lg:gap-12">
-                <Link href="/app" className="text-sm text-green-400 hover:text-green-300 transition-colors">
+                <Link href="/calculator" className="text-sm text-green-400 hover:text-green-300 transition-colors">
                   Use StrayZero
                 </Link>
                 <Link href="/pricing" className="text-sm text-green-400 hover:text-green-300 transition-colors">

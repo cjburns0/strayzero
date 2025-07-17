@@ -10,7 +10,7 @@ StrayZero is a modern ballistic calculator application designed for precision sh
 ```
 /app
 ├── page.tsx           # Landing page (root route)
-├── app/
+├── calculator/
 │   └── page.tsx      # Main ballistic calculator
 ├── reticle/
 │   └── page.tsx      # Reticle view
@@ -23,7 +23,7 @@ StrayZero is a modern ballistic calculator application designed for precision sh
 ### Routing
 
 - `/` - Landing page with product branding and launch button
-- `/app` - Main ballistic calculator application
+- `/calculator` - Main ballistic calculator application
 - `/reticle` - Reticle visualization for scope adjustments
 - `/settings` - Manage firearm and ammunition profiles
 
@@ -54,7 +54,7 @@ Each animation runs for 2 seconds infinitely with staggered opacity changes.
 
 ### Development Notes
 
-1. **File Organization**: The main app was moved from `/app/page.tsx` to `/app/app/page.tsx` to make room for the landing page at the root route.
+1. **File Organization**: The main app was moved from `/app/page.tsx` to `/app/calculator/page.tsx` to make room for the landing page at the root route.
 
 2. **Navigation Updates**: All internal links within the ballistic calculator maintain their original paths (`/reticle`, `/settings`).
 
