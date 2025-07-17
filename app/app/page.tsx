@@ -88,8 +88,8 @@ export default function HomePage() {
       <div className="max-w-md mx-auto space-y-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-green-300">Ballistic Calculator</h1>
-          <div className="flex gap-2">
+          <h1 className="text-xl sm:text-2xl font-bold text-green-300">Ballistic Calculator</h1>
+          <div className="flex gap-1 sm:gap-2">
             <Link href="/reticle">
               <Button
                 variant="outline"
@@ -115,6 +115,8 @@ export default function HomePage() {
         <Card className="bg-gradient-to-br from-blue-900/90 to-blue-800/90 border-blue-700/50 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-lg text-blue-100">Adjustments (mils)</CardTitle>
+            {/* TODO: Remove this warning when ballistic calculations are implemented */}
+            <p className="text-xs text-red-400 mt-1 text-center italic">(Ballistic calculations not yet live)</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-6">
@@ -201,14 +203,20 @@ export default function HomePage() {
               </Label>
               <Select value={selectedFirearm} onValueChange={setSelectedFirearm}>
                 <SelectTrigger className="bg-black border-green-900/30 text-green-300">
-                  <SelectValue placeholder="Select firearm" className="text-green-700" />
+                  <SelectValue placeholder={firearms.length > 0 ? "Select firearm" : "Add Firearm Profile"} className="text-green-700" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-green-900/30">
-                  {firearms.map((firearm) => (
-                    <SelectItem key={firearm.id} value={firearm.id} className="text-green-300 hover:bg-green-950/20">
-                      {firearm.name} ({firearm.caliber})
+                  {firearms.length > 0 ? (
+                    firearms.map((firearm) => (
+                      <SelectItem key={firearm.id} value={firearm.id} className="text-green-300 hover:bg-green-950/20">
+                        {firearm.name} ({firearm.caliber})
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <SelectItem value="none" disabled className="text-green-700">
+                      No firearms added
                     </SelectItem>
-                  ))}
+                  )}
                 </SelectContent>
               </Select>
             </div>
@@ -219,14 +227,20 @@ export default function HomePage() {
               </Label>
               <Select value={selectedAmmo} onValueChange={setSelectedAmmo}>
                 <SelectTrigger className="bg-black border-green-900/30 text-green-300">
-                  <SelectValue placeholder="Select ammunition" className="text-green-700" />
+                  <SelectValue placeholder={ammunition.length > 0 ? "Select ammunition" : "Add Ammo Profile"} className="text-green-700" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-green-900/30">
-                  {ammunition.map((ammo) => (
-                    <SelectItem key={ammo.id} value={ammo.id} className="text-green-300 hover:bg-green-950/20">
-                      {ammo.name} ({ammo.weight}gr)
+                  {ammunition.length > 0 ? (
+                    ammunition.map((ammo) => (
+                      <SelectItem key={ammo.id} value={ammo.id} className="text-green-300 hover:bg-green-950/20">
+                        {ammo.name} ({ammo.weight}gr)
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <SelectItem value="none" disabled className="text-green-700">
+                      No ammunition added
                     </SelectItem>
-                  ))}
+                  )}
                 </SelectContent>
               </Select>
             </div>
