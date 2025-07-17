@@ -59,7 +59,7 @@ export default function ReticlePage() {
       <div className="max-w-md mx-auto space-y-4">
         {/* Header */}
         <div className="flex items-center gap-4 mb-6">
-          <Link href="/">
+          <Link href="/calculator">
             <Button
               variant="outline"
               size="icon"

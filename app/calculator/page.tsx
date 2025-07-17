@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Settings, Target, Wind } from "lucide-react"
+import { Settings, Target, Wind, ChevronDown, ChevronUp } from "lucide-react"
 import Link from "next/link"
 
 interface Firearm {
@@ -38,6 +38,8 @@ export default function HomePage() {
   const [windDirection, setWindDirection] = useState<number>(90)
   const [elevation, setElevation] = useState<number>(0)
   const [windage, setWindage] = useState<number>(0)
+  const [showAdvanced, setShowAdvanced] = useState<boolean>(false)
+  const [temperature, setTemperature] = useState<number>(70)
 
   // Load saved data on component mount
   useEffect(() => {
@@ -140,6 +142,19 @@ export default function HomePage() {
           </CardContent>
         </Card>
 
+        {/* View Reticle Button */}
+        <div className="my-6">
+          <Link href="/reticle">
+            <Button
+              className="w-full bg-gray-900/50 hover:bg-green-950/20 text-green-400 hover:text-green-300 transition-all duration-200 font-medium border-2 border-green-500"
+              variant="outline"
+            >
+              <Target className="h-4 w-4 mr-2" />
+              View Reticle
+            </Button>
+          </Link>
+        </div>
+
         {/* Environmental Conditions */}
         <Card className="bg-gray-900/50 border-green-500 border-2 backdrop-blur-sm">
           <CardHeader>
@@ -188,6 +203,35 @@ export default function HomePage() {
                 />
               </div>
             </div>
+
+            {/* Advanced Settings Button */}
+            <button
+              type="button"
+              onClick={() => setShowAdvanced(!showAdvanced)}
+              className="flex items-center text-gray-500 hover:text-gray-400 italic text-sm transition-colors duration-200"
+            >
+              {showAdvanced ? <ChevronUp className="h-4 w-4 mr-1" /> : <ChevronDown className="h-4 w-4 mr-1" />}
+              Advanced Settings
+            </button>
+
+            {/* Advanced Settings Content */}
+            {/* TODO: When building out advanced settings, any unfilled fields will use default values */}
+            {showAdvanced && (
+              <div className="space-y-4 pt-2">
+                <div>
+                  <Label htmlFor="temperature" className="text-green-400">
+                    Temperature (°F)
+                  </Label>
+                  <Input
+                    id="temperature"
+                    type="number"
+                    value={temperature}
+                    onChange={(e) => setTemperature(Number(e.target.value))}
+                    className="font-mono bg-black border-green-900/30 text-green-300 placeholder-green-700 focus:border-green-500 focus:ring-green-500/20"
+                  />
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -258,17 +302,8 @@ export default function HomePage() {
           </CardContent>
         </Card>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-2 gap-4">
-          <Link href="/reticle">
-            <Button
-              className="w-full bg-gray-900/50 hover:bg-green-950/20 text-green-400 hover:text-green-300 transition-all duration-200 font-medium border-2 border-green-500"
-              variant="outline"
-            >
-              <Target className="h-4 w-4 mr-2" />
-              View Reticle
-            </Button>
-          </Link>
+        {/* Firearms/Ammo Settings Button */}
+        <div className="mt-6">
           <Link href="/settings">
             <Button
               className="w-full bg-gray-900/50 hover:bg-green-950/20 text-green-400 hover:text-green-300 transition-all duration-200 border-green-600 border-2"
