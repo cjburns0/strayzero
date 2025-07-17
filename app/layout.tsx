@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import Link from "next/link"
+import { Analytics } from "@vercel/analytics/next"
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
@@ -49,6 +50,7 @@ export default function RootLayout({
             <div className="max-w-4xl mx-auto">© 2025 StrayZero. Precision redefined.</div>
           </footer>
         </div>
+        <Analytics />
       </body>
     </html>
   )

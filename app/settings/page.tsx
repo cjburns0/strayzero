@@ -150,7 +150,7 @@ export default function SettingsPage() {
       <div className="max-w-md mx-auto space-y-4">
         {/* Header */}
         <div className="flex items-center gap-4 mb-6">
-          <Link href="/">
+          <Link href="/app">
             <Button
               variant="outline"
               size="icon"
